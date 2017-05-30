@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segura Cliente</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/MaterialKit/material-kit.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+    <link href="~/Content/CustomProject.css" rel="stylesheet" />
+
+</head>
+
+<body class="index-page">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Index", "Home")">
+                    <div class="logo-container">
+                        <div class="logo">
+                            <span class="navbar-brand" style="color: white; font-family: HarabaraMaisDemo; font-size: large;">Segura Cliente</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navigation-index">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@Url.Action("Action", "Controller")" rel="tooltip" title="Realize seu Login" data-placement="bottom" target="_blank" class="btn btn-simple">
+                            <i class="material-icons">person_pin</i>Login
+                        </a>
+                    </li>
+                    <li>
+                        <a rel="tooltip" title="Curta nossa página no Facebook" data-placement="bottom" href="https://www.facebook.com/Segura-cliente-668831063325875/" target="_blank" class="btn btn-simple">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url(../Images/HomePage.jpg);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="brand">
+                            <br /><br />
+                            @*<h1>
+                                    <img src="~/Images/Logo/Logo1.png" class="img-responsive">
+                                </h1>*@
+                            <br />
+                            <a href="@Url.Action("Create", "Cliente")" class="btn btn-default btn-raised btn-lg col-md-12"
+                               style="background-color: rgba(255, 255, 255, 0.15); color: #ffffff; border: 2px solid #ffffff;">
+                                ASSINE JÁ
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="main main-raised">
+            <div>
+                @RenderBody()
+                <br /><br />
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="copyright pull-left">
+                <div>
+                    <span class="navbar-brand" style="font-family: HarabaraMaisDemo; font-size: large;">Segura Cliente</span>
+                    <strong> &copy; 2017.</strong> Todos os direitos reservados.
+                </div>
+                <div>
+                    <i class="fa fa-envelope"></i> &nbsp; contato@seguracliente.com.br
+                </div>
+            </div>
+            <div class="pull-right">
+                <p>
+                    <span>Siga-nos nas nossas redes sociais</span>
+                </p>
+                <div class="footer-icons">
+                    &nbsp;&nbsp;
+                    <a href="https://www.facebook.com/Segura-cliente-668831063325875/"><i class="fa fa-facebook-square fa-2x"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!--   Core JS Files   -->
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/MaterialKit/material.min.js"></script>
+    <script src="~/Content/MaterialKit/nouislider.min.js"></script>
+
+    <!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+    <script src="~/Content/MaterialKit/material-kit.js"></script>
+
+    @RenderSection("scripts", required: false)
+
+
+    <script type="text/javascript">
+
+		$().ready(function(){
+			// the body of this function is in assets/material-kit.js
+			//materialKit.initSliders();
+			$(window).on('scroll', materialKit.checkScrollForTransparentNavbar);
+
+            window_width = $(window).width();
+
+            if (window_width >= 768){
+                big_image = $('.wrapper > .header');
+
+				$(window).on('scroll', materialKitDemo.checkScrollForParallax);
+			}
+
+		});
+    </script>
+
+</body>
+
+
+</html>

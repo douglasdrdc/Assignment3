@@ -1,0 +1,23 @@
+﻿@model Assignment3.Web.Models.Pagamento
+
+@{
+    ViewBag.Title = "PagamentoEmProcessamento";
+    Layout = "~/Views/Shared/_LayoutHeaderSlim.cshtml";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h2>Pagamento em Processamento</h2>
+
+        <h3>Estamos quase lá!</h3>
+        <h4>Seu pagamento está em processamento. Assim que confirmado você receberá um e-mail avisando.</h4>
+                
+    </div>
+    <br />
+    <br />
+
+    <div>
+        @Html.ActionLink("Voltar para a página inicial", "Index", "Home")
+    </div>
+
+</div>

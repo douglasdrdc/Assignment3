@@ -1,0 +1,26 @@
+﻿@model Assignment3.Web.Models.Pagamento
+
+@{
+    ViewBag.Title = "PagamentoConfirmado";
+    Layout = "~/Views/Shared/_LayoutHeaderSlim.cshtml";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h2>Confirmação de Pagamento</h2>
+
+        <h3>Parabéns</h3>
+        <h4>Seu pagamento foi aprovado</h4>
+
+        <div>
+            @Html.ActionLink("Acesse já sua conta", "Login", "Cliente", new { @class = "btn btn-primary btn-lg" })
+        </div>
+    </div>
+    <br />
+    <br />
+    
+    <div>
+        @Html.ActionLink("Voltar para a página inicial", "Index", "Home")
+    </div>
+
+</div>
