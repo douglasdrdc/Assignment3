@@ -1,0 +1,41 @@
+﻿
+/* Fonte Externa Google */
+@font-face {
+    font-family: 'HarabaraMaisDemo';
+    src: url('../fonts/HarabaraMaisDemo.otf') format('opentype');
+}
+
+
+/* Session */
+.content-section-a {
+    padding: 15px 0;
+    background-color: #ffffff;
+    color: #61615f;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.content-section-b {
+    padding: 15px 0;
+    background-color: #00acc1;
+    color: white;    
+    border-bottom: 1px solid #389eb2;
+}
+
+.content-section-c {
+    padding: 15px 0;
+    background-color: #3b3b3b;
+    color: white;    
+    border-bottom: 1px solid #2a2929;
+}
+
+.section-a-heading {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #817e7e;
+}
+
+.section-b-heading {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 1px solid #eeeeee;
+}
