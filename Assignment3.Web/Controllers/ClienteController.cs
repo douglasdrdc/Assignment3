@@ -52,7 +52,7 @@ namespace Assignment3.Web.Controllers
             {
                 db.Cliente.Add(cliente);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("RealizarPagamento", "Pagamento", cliente);
             }
 
             return View(cliente);
@@ -114,6 +114,7 @@ namespace Assignment3.Web.Controllers
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
+                    
 
         protected override void Dispose(bool disposing)
         {

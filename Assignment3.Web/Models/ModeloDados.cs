@@ -13,6 +13,7 @@ namespace Assignment3.Web.Models
         }
 
         public virtual DbSet<Cliente> Cliente { get; set; }
+        public virtual DbSet<Pagamento> Pagamento { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -34,6 +35,16 @@ namespace Assignment3.Web.Models
 
             modelBuilder.Entity<Cliente>()
                 .Property(e => e.Telefone)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Pagamento>()
+                .Property(e => e.ClienteId);
+
+            modelBuilder.Entity<Pagamento>()
+                .Property(e => e.DataPagamento);
+
+            modelBuilder.Entity<Pagamento>()
+                .Property(e => e.StatusPagamento)
                 .IsUnicode(false);
         }
     }
