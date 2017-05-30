@@ -232,6 +232,7 @@
     <Content Include="Views\Pagamento\Index.cshtml" />
     <Content Include="Views\Pagamento\PagamentoConfirmado.cshtml" />
     <Content Include="Views\Pagamento\PagamentoEmProcessamento.cshtml" />
+    <Content Include="Views\Pagamento\RealizarPagamento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

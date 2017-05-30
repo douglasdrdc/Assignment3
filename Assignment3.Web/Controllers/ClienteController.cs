@@ -84,7 +84,7 @@ namespace Assignment3.Web.Controllers
             {
                 db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("RealizarPagamento", "Pagamento", cliente);
             }
             return View(cliente);
         }

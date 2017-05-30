@@ -23,7 +23,10 @@ namespace Assignment3.Web.Controllers
 
         public ActionResult RealizarPagamento(Cliente cliente)
         {
-            return View(cliente);
+            Pagamento pagamento = new Pagamento();
+            pagamento.ClienteId = cliente.ClienteId;
+            pagamento.Cliente = cliente;
+            return View(pagamento);
         }
 
         public ActionResult PagamentoConfirmado()
