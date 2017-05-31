@@ -1,0 +1,68 @@
+﻿@model Assignment3.Web.Models.Cliente
+
+@{
+    ViewBag.Title = "HomePortal";
+    Layout = "~/Views/Shared/_LayoutHeaderPortal.cshtml";
+}
+
+<div class="container">
+    <h2>Portal do Corretor</h2>
+    <br />
+
+    <div class="row">
+        <div class="col-md-2">
+            <a href="@Url.Action("Create", "Solicitante")" class="btn btn-default btn-lg">
+                Novo solicitante
+            </a>
+        </div>  
+        <div class="col-md-2">
+            <a href="@Url.Action("Create", "Cotacao")" class="btn btn-default btn-lg">
+                Criar nova cotação
+            </a>
+        </div>                
+    </div>
+    
+    
+
+    <br /><br />
+
+    @if (Model.Cotacoes != null && Model.Cotacoes.Count > 0)
+    {
+        <fieldset>
+            <legend>Cotações em aberto</legend>
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cliente</th>
+                            <th>Data da Solicitação</th>
+                            <th>Data de Validade</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Cotacoes)
+                        {
+                            <tr>
+                                <td> @item.Cliente.Nome </td>
+                                <td> @item.DataSolicitacao.ToString("dd/MM/yyyy") </td>
+                                <td> @item.DataValidade.ToString("dd/MM/yyyy") </td>
+                                <td>
+                                    <button type="button" class="btn btn-default">Mais detalhes</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            <span>Não há cotações em aberto</span>
+        </div>
+    }
+
+
+</div>

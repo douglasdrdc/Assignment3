@@ -22,6 +22,7 @@ namespace Assignment3.Web.Models
         [Required(ErrorMessage = "Campo e-mail é obrigatório")]
         [StringLength(500)]
         [Display(Name = "E-mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Campo CPF/CNPJ é obrigatório")]
@@ -32,5 +33,11 @@ namespace Assignment3.Web.Models
         [Required(ErrorMessage = "Campo telefone é obrigatório")]
         [StringLength(50)]
         public string Telefone { get; set; }
+
+        [Required(ErrorMessage = "Campo senha é obrigatório")]
+        [StringLength(30, MinimumLength = 4)]
+        public string Senha { get; set; }
+
+        public List<Cotacao> Cotacoes { get; set; }
     }
 }

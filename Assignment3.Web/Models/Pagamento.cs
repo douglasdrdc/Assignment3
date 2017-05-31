@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Assignment3.Web.Models
 {
     [Table("Pagamento")]
-    public class Pagamento
+    public partial class Pagamento
     {
         public int PagamentoId { get; set; }
         public int ClienteId { get; set; }

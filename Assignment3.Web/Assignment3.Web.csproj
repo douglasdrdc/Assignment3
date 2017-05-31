@@ -163,14 +163,17 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagamentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Cotacao.cs" />
     <Compile Include="Models\ModeloDados.cs" />
     <Compile Include="Models\Pagamento.cs" />
+    <Compile Include="Models\Solicitante.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +236,9 @@
     <Content Include="Views\Pagamento\PagamentoConfirmado.cshtml" />
     <Content Include="Views\Pagamento\PagamentoEmProcessamento.cshtml" />
     <Content Include="Views\Pagamento\RealizarPagamento.cshtml" />
+    <Content Include="Views\Shared\_LayoutHeaderPortal.cshtml" />
+    <Content Include="Views\Cliente\HomePortal.cshtml" />
+    <Content Include="Views\Cliente\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

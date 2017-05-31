@@ -10,7 +10,7 @@ using Assignment3.Web.Models;
 
 namespace Assignment3.Web.Controllers
 {
-    public class PagamentoController : Controller
+    public class PagamentoController : ControllerBase
     {
         private ModeloDados db = new ModeloDados();
 
