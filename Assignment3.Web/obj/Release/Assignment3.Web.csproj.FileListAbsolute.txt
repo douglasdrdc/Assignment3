@@ -55,4 +55,3 @@ C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\bin\Newtonsoft.Json.xml
 C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\obj\Release\Assignment3.Web.csprojResolveAssemblyReference.cache
 C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\obj\Release\Assignment3.Web.dll
 C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\obj\Release\Assignment3.Web.pdb
-C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\bin\mercadopago.dll

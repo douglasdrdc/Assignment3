@@ -93,8 +93,21 @@ namespace Assignment3.Web.Models
             modelBuilder.Entity<Cotacao>()
                     .Property(e => e.DataValidade);
 
+            modelBuilder.Entity<Cotacao>()
+                .Property(e => e.DescricaoSolicitacao)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Cotacao>()
+                .Property(e => e.ComentariosGerais)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Cotacao>()
+                .Property(e => e.TipoCotacao);
+            
             #endregion
 
         }
+
+        public System.Data.Entity.DbSet<Assignment3.Web.Models.Solicitante> Solicitantes { get; set; }
     }
 }

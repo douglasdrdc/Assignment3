@@ -136,7 +136,7 @@ namespace Assignment3.Web.Controllers
                                 
                 Cliente cliente = this.ClienteLogado;
 
-                cliente.Cotacoes = db.Cotacao.Where(x => x.ClienteId == cliente.ClienteId && x.DataValidade >= DateTime.Now).ToList();
+                cliente.Cotacoes = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante).Where(x => x.ClienteId == cliente.ClienteId && x.DataValidade >= DateTime.Now).ToList();
 
                 return View(cliente);
             }

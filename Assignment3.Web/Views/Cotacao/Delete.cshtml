@@ -1,0 +1,84 @@
+﻿@model Assignment3.Web.Models.Cotacao
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutHeaderPortal.cshtml";
+}
+
+<div class="container">
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Cotacao</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Cliente.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cliente.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Solicitante.Nome)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Solicitante.Nome)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataSolicitacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataSolicitacao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataValidade)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataValidade)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DescricaoSolicitacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DescricaoSolicitacao)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ComentariosGerais)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ComentariosGerais)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TipoCotacao)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TipoCotacao)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Excluir" class="btn btn-default" /> |
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        }
+    </div>
+
+</div>

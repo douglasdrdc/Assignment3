@@ -111,4 +111,4 @@ C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\bin\Antlr3.Runtime.pdb
 C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\bin\Newtonsoft.Json.xml
 C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\obj\Debug\Assignment3.Web.dll
 C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\obj\Debug\Assignment3.Web.pdb
-C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\bin\mercadopago.dll
+C:\Douglas\ProjetosGIT\Assignment3\Assignment3.Web\obj\Debug\Assignment3.Web.csprojResolveAssemblyReference.cache

@@ -1,9 +1,7 @@
 /* ANIMATION */
 /* SHADOWS */
 /* Shadows (from mdl http://www.getmdl.io/) */
-body {
-  background-color: #CCCCCC;
-}
+
 body.inverse {
   background: #333333;
 }
@@ -112,7 +110,7 @@ a .material-icons, a:hover .material-icons, a:focus .material-icons {
 }
 .btn:not(.btn-raised).btn-primary,
 .input-group-btn .btn:not(.btn-raised).btn-primary {
-  color: #00acc1;
+  color: #fff;
 }
 .btn:not(.btn-raised).btn-success,
 .input-group-btn .btn:not(.btn-raised).btn-success {
@@ -133,7 +131,7 @@ a .material-icons, a:hover .material-icons, a:focus .material-icons {
 .btn:not(.btn-raised):not(.btn-link):hover, .btn:not(.btn-raised):not(.btn-link):focus,
 .input-group-btn .btn:not(.btn-raised):not(.btn-link):hover,
 .input-group-btn .btn:not(.btn-raised):not(.btn-link):focus {
-  background-color: transparent;
+  background-color: #e6b12c;
 }
 .btn:focus, .btn:active, .btn:active:focus,
 .input-group-btn .btn:focus,
@@ -370,7 +368,7 @@ a .material-icons, a:hover .material-icons, a:focus .material-icons {
 .input-group-btn .btn.btn-lg, .btn-group-lg
 .input-group-btn .btn {
   font-size: 14px;
-  padding: 18px 36px;
+  background: #f5c700;
 }
 .btn.btn-sm, .btn-group-sm .btn,
 .input-group-btn .btn.btn-sm, .btn-group-sm
@@ -1301,11 +1299,11 @@ label.control-label {
   font-weight: 400;
 }
 .form-group label.control-label {
-  font-size: 11px;
+  font-size: 18px;
   line-height: 1.07143;
   color: #AAAAAA;
   font-weight: 400;
-  margin: 16px 0 0 0;
+  margin: 0;
 }
 .form-group .help-block {
   margin-top: 0;
@@ -1655,8 +1653,10 @@ legend {
   background-color: #00acc1;
   border: 0;
   border-radius: 3px;
-  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
   padding: 10px 0;
+  -webkit-box-shadow: 0px 6px 16px -4px rgba(181,181,181,1);
+  -moz-box-shadow: 0px 6px 16px -4px rgba(181,181,181,1);
+  box-shadow: 0px 6px 16px -4px rgba(181,181,181,1);
 }
 .navbar .navbar-brand {
   position: relative;
@@ -2239,8 +2239,10 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: 1.3em;
+  font-size: 25px;
   line-height: 1.4em;
+  font-weight: bold;
+  color: #00acc1;
 }
 
 h5, .h5 {
@@ -3150,7 +3152,9 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .main-raised {
   margin: -60px 30px 0px;
   border-radius: 6px;
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 0px 16px -4px rgba(181,181,181,1);
+  -moz-box-shadow: -1px 0px 16px -4px rgba(181,181,181,1);
+  box-shadow: -1px 0px 16px -4px rgba(181,181,181,1);
 }
 
 .title {

@@ -1,0 +1,221 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using Assignment3.Web.Models;
+
+namespace Assignment3.Web.Controllers
+{
+    public class CotacaoController : ControllerBase
+    {
+        private ModeloDados db = new ModeloDados();
+
+        // GET: Cotacao
+        public ActionResult Index()
+        {
+            try
+            {
+                ValidateSessionActive();
+
+                var cotacao = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante);
+                if (cotacao != null && cotacao.Count() > 0)
+                    cotacao.Where(x => x.ClienteId == this.ClienteLogado.ClienteId).ToList();
+                return View(cotacao.ToList());
+            }
+            catch (System.Security.Authentication.AuthenticationException)
+            {
+                return RedirectToAction("Login", "Cliente");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        // GET: Cotacao/Details/5
+        public ActionResult Details(int? id)
+        {
+            try
+            {
+                ValidateSessionActive();
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cotacao cotacao = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante).Where(x => x.CotacaoId == id).FirstOrDefault();
+                if (cotacao == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cotacao);
+            }
+            catch (System.Security.Authentication.AuthenticationException)
+            {
+                return RedirectToAction("Login", "Cliente");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        // GET: Cotacao/Create
+        public ActionResult Create()
+        {
+            try
+            {
+                ValidateSessionActive();
+
+                Cotacao cotacao = new Cotacao();
+                cotacao.ClienteId = this.ClienteLogado.ClienteId;
+                cotacao.DataSolicitacao = DateTime.Now;
+                cotacao.DataValidade = DateTime.Now.AddDays(10);
+
+                var solicitantes = db.Solicitantes.Where(x => x.ClienteId == this.ClienteLogado.ClienteId).ToList();
+                if (solicitantes != null && solicitantes.Count() > 0)
+                    ViewBag.Solicitantes = solicitantes;
+                else
+                    ViewBag.MensagemValidacao = "É necessário realizar o cadastro do cliente antes de criar a cotação.";
+
+                return View(cotacao);
+            }
+            catch (System.Security.Authentication.AuthenticationException)
+            {
+                return RedirectToAction("Login", "Cliente");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        // POST: Cotacao/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Cotacao cotacao)
+        {
+            if (ModelState.IsValid)
+            {
+                cotacao.ClienteId = this.ClienteLogado.ClienteId;
+                cotacao.DataSolicitacao = DateTime.Now;
+                cotacao.DataValidade = DateTime.Now.AddDays(10);
+
+                db.Cotacao.Add(cotacao);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.ClienteId = new SelectList(db.Cliente, "ClienteId", "Nome", cotacao.ClienteId);
+            ViewBag.SolicitanteId = new SelectList(db.Solicitantes, "SolicitanteId", "Nome", cotacao.SolicitanteId);
+            return View(cotacao);
+        }
+
+        // GET: Cotacao/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            try
+            {
+                ValidateSessionActive();
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cotacao cotacao = db.Cotacao.Find(id);
+                if (cotacao == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.ClienteId = new SelectList(db.Cliente, "ClienteId", "Nome", cotacao.ClienteId);
+                ViewBag.SolicitanteId = new SelectList(db.Solicitantes, "SolicitanteId", "Nome", cotacao.SolicitanteId);
+                return View(cotacao);
+            }
+            catch (System.Security.Authentication.AuthenticationException)
+            {
+                return RedirectToAction("Login", "Cliente");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        // POST: Cotacao/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Cotacao cotacao)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(cotacao).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.ClienteId = new SelectList(db.Cliente, "ClienteId", "Nome", cotacao.ClienteId);
+            ViewBag.SolicitanteId = new SelectList(db.Solicitantes, "SolicitanteId", "Nome", cotacao.SolicitanteId);
+            return View(cotacao);
+        }
+
+        // GET: Cotacao/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            try
+            {
+                ValidateSessionActive();
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Cotacao cotacao = db.Cotacao.Find(id);
+                if (cotacao == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(cotacao);
+            }
+            catch (System.Security.Authentication.AuthenticationException)
+            {
+                return RedirectToAction("Login", "Cliente");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+        }
+
+        // POST: Cotacao/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Cotacao cotacao = db.Cotacao.Find(id);
+            db.Cotacao.Remove(cotacao);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+    }
+}

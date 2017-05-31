@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Assignment3.Web.Models.Cotacao>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHeaderPortal.cshtml";
+}
+
+
+<div class="container">
+
+    <p>
+        @Html.ActionLink("Criar Nova Cotação", "Create")
+    </p>
+    <table class="table">
+        <tr>            
+            <th>
+                @Html.DisplayNameFor(model => model.Solicitante.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataSolicitacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataValidade)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.TipoCotacao)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Solicitante.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataSolicitacao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataValidade)
+                </td>                
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoCotacao)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.CotacaoId }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.CotacaoId }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.CotacaoId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <br />
+
+    <div>
+        @Html.ActionLink("Voltar para a página inicial", "HomePortal", "Cliente")
+    </div>
+    
+
+</div>

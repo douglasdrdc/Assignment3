@@ -12,11 +12,11 @@ namespace Assignment3.Web.Models
         public int ClienteId { get; set; }
         public Cliente Cliente { get; set; }
 
-        [Required(ErrorMessage = "Campo nome é obrigatório")]
+        [Required(ErrorMessage = "Campo obrigatório")]
         [StringLength(500)]
         public string Nome { get; set; }
 
-        [Required(ErrorMessage = "Campo nome é obrigatório")]
+        [Required(ErrorMessage = "Campo obrigatório")]
         [StringLength(500)]
         public string Sobrenome { get; set; }
 

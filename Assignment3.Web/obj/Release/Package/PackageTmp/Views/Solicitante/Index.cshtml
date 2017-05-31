@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Assignment3.Web.Models.Solicitante>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHeaderPortal.cshtml";
+}
+
+<div class="container">
+
+    <p>
+        @Html.ActionLink("Cadastrar Novo Cliente", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sobrenome)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sobrenome)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.SolicitanteId }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.SolicitanteId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+    <br />
+
+    <div>
+        @Html.ActionLink("Voltar para a página inicial", "HomePortal", "Cliente")
+    </div>
+
+</div>
