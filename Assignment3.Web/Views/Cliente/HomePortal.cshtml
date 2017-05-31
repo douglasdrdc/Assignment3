@@ -29,6 +29,11 @@
 
     @if (Model.Cotacoes != null && Model.Cotacoes.Count > 0)
     {
+
+        @Html.ActionLink("Visualizar todas as cotações", "Index", "Cotacao")
+
+        <br /><br />
+
         <fieldset>
             <legend>Cotações em aberto</legend>
             <div>
@@ -37,8 +42,7 @@
                         <tr>
                             <th>Nome do Cliente</th>
                             <th>Data da Solicitação</th>
-                            <th>Data de Validade</th>
-                            <th></th>
+                            <th>Data de Validade</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -47,10 +51,7 @@
                             <tr>
                                 <td> @string.Format("{0} {1}", item.Solicitante.Nome, item.Solicitante.Sobrenome) </td>
                                 <td> @item.DataSolicitacao.ToString("dd/MM/yyyy") </td>
-                                <td> @item.DataValidade.ToString("dd/MM/yyyy") </td>
-                                <td>
-                                    @Html.ActionLink("Detalhes", "Details", "Cotacao", new { id = item.CotacaoId })
-                                </td>
+                                <td> @item.DataValidade.ToString("dd/MM/yyyy") </td>                                
                             </tr>
                         }
                     </tbody>

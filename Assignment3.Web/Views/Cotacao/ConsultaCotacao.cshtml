@@ -1,0 +1,111 @@
+﻿@model Assignment3.Web.Models.Cotacao
+
+@{
+    ViewBag.Title = "ConsultaCotacao";
+    Layout = "~/Views/Shared/_LayoutHeaderSlim.cshtml";
+}
+
+
+<div class="container">
+
+    @if (ViewBag.MensagemStatus != null)
+    {
+        <div class="alert alert-info" role="alert">
+            <span> @ViewBag.MensagemStatus </span>
+        </div>
+    }
+    else
+    {
+
+        <div>
+            <h4>Detalhes da Cotação</h4>
+            <hr />
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Solicitante.Nome)
+                        </dt>
+                        <dd>
+                            @string.Format("{0} {1}", @Html.DisplayFor(model => model.Solicitante.Nome), @Html.DisplayFor(model => model.Solicitante.Sobrenome))
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DataSolicitacao)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DataSolicitacao)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DataValidade)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DataValidade)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DescricaoSolicitacao)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DescricaoSolicitacao)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ComentariosGerais)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ComentariosGerais)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TipoCotacao)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.TipoCotacao)
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+
+        </div>
+
+    }
+</div>

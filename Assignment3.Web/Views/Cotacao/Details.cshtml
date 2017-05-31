@@ -10,6 +10,14 @@
         <h4>Detalhes da Cotação</h4>
         <hr />
 
+        <br />
+
+        <div class="alert alert-info" role="alert">
+            <span> Compartilhe esta cotação com seu cliente através do seguinte link: <strong> @string.Format("{0}?id={1}", "http://seguracliente.com.br/Cotacao/ConsultaCotacao", @Model.Solicitante.ChaveIdentificacao) </strong> </span>
+        </div>
+
+        <hr />
+
         <div class="panel panel-default">
             <div class="panel-body">
                 <dl class="dl-horizontal">

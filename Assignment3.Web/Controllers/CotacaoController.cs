@@ -209,6 +209,47 @@ namespace Assignment3.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ConsultaCotacao(string id)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(id))
+                {
+                    ViewBag.MensagemStatus = "Desculpe mas não encontramos nenhum dado para esta cotação. Verifique com seu corretor se o link informado está correto.";
+                    return View();
+                }
+                                
+                var solicitante = db.Solicitantes.Where(x => x.ChaveIdentificacao == id).FirstOrDefault();
+                if (solicitante == null)
+                {
+                    ViewBag.MensagemStatus = "Desculpe mas não encontramos nenhum dado para esta cotação. Verifique com seu corretor se o link informado está correto.";
+                    return View();
+                }
+
+                Cotacao cotacao = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante).Where(x => x.CotacaoId == solicitante.ClienteId).FirstOrDefault();
+                if (cotacao == null)
+                {
+                    ViewBag.MensagemStatus = "Desculpe mas não encontramos nenhum dado para esta cotação. Verifique com seu corretor se o link informado está correto.";
+                    return View();
+                }
+
+                return View(cotacao);
+            }
+            catch (System.Security.Authentication.AuthenticationException)
+            {
+                ViewBag.MensagemStatus = "Desculpe mas não encontramos nenhum dado para esta cotação. Verifique com seu corretor se o link informado está correto.";
+                return View();
+            }
+            catch (Exception)
+            {
+                ViewBag.MensagemStatus = "Desculpe mas não encontramos nenhum dado para esta cotação. Verifique com seu corretor se o link informado está correto.";
+                return View();
+            }
+
+        }
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -313,6 +313,7 @@
     <Content Include="Views\Cotacao\Details.cshtml" />
     <Content Include="Views\Cotacao\Edit.cshtml" />
     <Content Include="Views\Cotacao\Index.cshtml" />
+    <Content Include="Views\Cotacao\ConsultaCotacao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
