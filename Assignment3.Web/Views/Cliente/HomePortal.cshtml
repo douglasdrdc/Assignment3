@@ -51,7 +51,8 @@
                             <tr>
                                 <td> @string.Format("{0} {1}", item.Solicitante.Nome, item.Solicitante.Sobrenome) </td>
                                 <td> @item.DataSolicitacao.ToString("dd/MM/yyyy") </td>
-                                <td> @item.DataValidade.ToString("dd/MM/yyyy") </td>                                
+                                <td> @item.DataValidade.ToString("dd/MM/yyyy") </td>  
+                                <td> <a href="@Url.Action("Details", "Cotacao",new { id= item.CotacaoId })">Detalhes</a> </td>                              
                             </tr>
                         }
                     </tbody>

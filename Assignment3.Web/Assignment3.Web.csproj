@@ -165,6 +165,8 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\CotacaoController.cs" />
+    <Compile Include="Controllers\CotacaoItemAutomovelController.cs" />
+    <Compile Include="Controllers\CotacaoItemImovelController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagamentoController.cs" />
@@ -259,7 +261,11 @@
     <Content Include="CustomPages\fonts\icomoon\icomoon.woff" />
     <Content Include="CustomPages\images\.DS_Store" />
     <Content Include="CustomPages\js\.DS_Store" />
+    <None Include="Properties\PublishProfiles\Assignment3Web - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Assignment3Web - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\Assignment3Web - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Assignment3Web - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Assignment3Web - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\Assignment3Web - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -314,6 +320,8 @@
     <Content Include="Views\Cotacao\Edit.cshtml" />
     <Content Include="Views\Cotacao\Index.cshtml" />
     <Content Include="Views\Cotacao\ConsultaCotacao.cshtml" />
+    <Content Include="Views\CotacaoItemAutomovel\Create.cshtml" />
+    <Content Include="Views\CotacaoItemImovel\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

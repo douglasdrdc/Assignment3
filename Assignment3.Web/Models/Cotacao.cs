@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -39,6 +40,9 @@ namespace Assignment3.Web.Models
         [Required(ErrorMessage = "Campo obrigatório")]
         [Display(Name = "Tipo de Cotação")]
         public TipoCotacao TipoCotacao { get; set; }
-        
+
+        public List<CotacaoItemAutomovel> ItensAutomovel { get; set; }
+        public List<CotacaoItemImovel> ItensImovel { get; set; }        
+
     }
 }

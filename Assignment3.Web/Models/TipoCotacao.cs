@@ -11,8 +11,8 @@ namespace Assignment3.Web.Models
         [Description("Cotação Automóvel")]
         CotacaoAutomovel = 0,
         [Description("Cotação Imóvel")]
-        CotacaoImovel = 1,
-        [Description("Cotação Saúde")]
-        CotacaoSaude = 2
+        CotacaoImovel = 1
+        //[Description("Cotação Saúde")]
+        //CotacaoSaude = 2
     }
 }

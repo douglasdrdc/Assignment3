@@ -53,6 +53,17 @@ namespace Assignment3.Web.Controllers
                 {
                     return HttpNotFound();
                 }
+
+                switch (cotacao.TipoCotacao)
+                {
+                    case TipoCotacao.CotacaoAutomovel:
+                        cotacao.ItensAutomovel = db.CotacaoItemAutomovels.Where(x => x.CotacaoId == cotacao.CotacaoId).ToList();
+                        break;
+                    case TipoCotacao.CotacaoImovel:
+                        cotacao.ItensImovel = db.CotacaoItemImovels.Where(x => x.CotacaoId == cotacao.CotacaoId).ToList();
+                        break;                    
+                }
+
                 return View(cotacao);
             }
             catch (System.Security.Authentication.AuthenticationException)
@@ -112,7 +123,16 @@ namespace Assignment3.Web.Controllers
 
                 db.Cotacao.Add(cotacao);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                switch (cotacao.TipoCotacao)
+                {
+                    case TipoCotacao.CotacaoAutomovel:
+                        return RedirectToAction("Create", "CotacaoItemAutomovel", new { id = cotacao.CotacaoId });
+                    case TipoCotacao.CotacaoImovel:
+                        return RedirectToAction("Create", "CotacaoItemImovel", new { id = cotacao.CotacaoId });
+                }
+
+                
             }
 
             ViewBag.ClienteId = new SelectList(db.Cliente, "ClienteId", "Nome", cotacao.ClienteId);
@@ -162,10 +182,16 @@ namespace Assignment3.Web.Controllers
             {
                 db.Entry(cotacao).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                switch (cotacao.TipoCotacao)
+                {
+                    case TipoCotacao.CotacaoAutomovel:
+                        return RedirectToAction("Create", "CotacaoItemAutomovel", new { id = cotacao.CotacaoId });                        
+                    case TipoCotacao.CotacaoImovel:
+                        return RedirectToAction("Create", "CotacaoItemImovel", new { id = cotacao.CotacaoId });                    
+                }                                
             }
-            ViewBag.ClienteId = new SelectList(db.Cliente, "ClienteId", "Nome", cotacao.ClienteId);
-            ViewBag.SolicitanteId = new SelectList(db.Solicitantes, "SolicitanteId", "Nome", cotacao.SolicitanteId);
+                        
             return View(cotacao);
         }
 
@@ -226,11 +252,21 @@ namespace Assignment3.Web.Controllers
                     return View();
                 }
 
-                Cotacao cotacao = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante).Where(x => x.CotacaoId == solicitante.ClienteId).FirstOrDefault();
+                Cotacao cotacao = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante).Where(x => x.SolicitanteId == solicitante.SolicitanteId).FirstOrDefault();
                 if (cotacao == null)
                 {
                     ViewBag.MensagemStatus = "Desculpe mas não encontramos nenhum dado para esta cotação. Verifique com seu corretor se o link informado está correto.";
                     return View();
+                }
+
+                switch (cotacao.TipoCotacao)
+                {
+                    case TipoCotacao.CotacaoAutomovel:
+                        cotacao.ItensAutomovel = db.CotacaoItemAutomovels.Where(x => x.CotacaoId == cotacao.CotacaoId).ToList();
+                        break;
+                    case TipoCotacao.CotacaoImovel:
+                        cotacao.ItensImovel = db.CotacaoItemImovels.Where(x => x.CotacaoId == cotacao.CotacaoId).ToList();
+                        break;                    
                 }
 
                 return View(cotacao);

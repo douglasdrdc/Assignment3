@@ -103,11 +103,81 @@ namespace Assignment3.Web.Models
 
             modelBuilder.Entity<Cotacao>()
                 .Property(e => e.TipoCotacao);
-            
+
+            #endregion
+
+            #region Cotação Item Automóvel
+
+            modelBuilder.Entity<CotacaoItemAutomovel>()
+                    .Property(e => e.CotacaoId);
+
+            modelBuilder.Entity<CotacaoItemAutomovel>()
+                .Property(e => e.NomeSeguradora)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemAutomovel>()
+                    .Property(e => e.ValorFranquia);
+
+            modelBuilder.Entity<CotacaoItemAutomovel>()
+                    .Property(e => e.ValorPremio);
+
+            modelBuilder.Entity<CotacaoItemAutomovel>()
+                .Property(e => e.LinkCotacao)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemAutomovel>()
+                .Property(e => e.Comentarios)
+                .IsUnicode(false);
+
+            #endregion
+
+            #region Cotação Item Imóvel
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.CotacaoId);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                .Property(e => e.TipoImovel);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.Bairro)
+                    .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.Cidade)
+                    .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.Metragem)
+                    .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.QuantidadeQuartos)
+                    .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.Cidade)
+                    .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                    .Property(e => e.Valor  );
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                .Property(e => e.LinkCotacao)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<CotacaoItemImovel>()
+                .Property(e => e.Comentarios)
+                .IsUnicode(false);
+
             #endregion
 
         }
 
         public System.Data.Entity.DbSet<Assignment3.Web.Models.Solicitante> Solicitantes { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment3.Web.Models.CotacaoItemAutomovel> CotacaoItemAutomovels { get; set; }
+
+        public System.Data.Entity.DbSet<Assignment3.Web.Models.CotacaoItemImovel> CotacaoItemImovels { get; set; }
     }
 }

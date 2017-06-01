@@ -105,6 +105,87 @@
             </div>
 
 
+            @if (Model.TipoCotacao == Assignment3.Web.Models.TipoCotacao.CotacaoAutomovel && Model.ItensAutomovel != null && Model.ItensAutomovel.Count > 0)
+            {
+                <h4>Comparativo</h4>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.ItensAutomovel[0].NomeSeguradora)</th>
+                                        <th>@Html.LabelFor(model => model.ItensAutomovel[0].ValorFranquia)</th>
+                                        <th>@Html.LabelFor(model => model.ItensAutomovel[0].ValorPremio)</th>
+                                        <th>@Html.LabelFor(model => model.ItensAutomovel[0].LinkCotacao)</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.ItensAutomovel)
+                                    {
+                                        <tr>
+                                            <td> @item.NomeSeguradora </td>
+                                            <td> @item.ValorFranquia </td>
+                                            <td> @item.ValorPremio </td>
+                                            <td> <a href="@item.LinkCotacao" target="_blank">@item.LinkCotacao</a> </td>
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            }
+
+            @if (Model.TipoCotacao == Assignment3.Web.Models.TipoCotacao.CotacaoImovel && Model.ItensImovel != null && Model.ItensImovel.Count > 0)
+            {
+                <h4>Comparativo</h4>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>@Html.LabelFor(model => model.ItensImovel[0].TipoImovel)</th>
+                                        <th>@Html.LabelFor(model => model.ItensImovel[0].Bairro)</th>
+                                        <th>@Html.LabelFor(model => model.ItensImovel[0].Cidade)</th>
+                                        <th>@Html.LabelFor(model => model.ItensImovel[0].Metragem)</th>
+                                        <th>@Html.LabelFor(model => model.ItensImovel[0].QuantidadeQuartos)</th>
+                                        <th>@Html.LabelFor(model => model.ItensImovel[0].Valor)</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.ItensImovel)
+                                    {
+                                        <tr>
+                                            <td> @item.TipoImovel </td>
+                                            <td> @item.Bairro</td>
+                                            <td> @item.Cidade</td>
+                                            <td> @item.Metragem</td>
+                                            <td> @item.QuantidadeQuartos</td>
+                                            <td> @item.Valor</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            }
+
+
+
         </div>
 
     }
