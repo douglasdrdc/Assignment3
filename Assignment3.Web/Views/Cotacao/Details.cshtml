@@ -156,6 +156,7 @@
                                     <th>@Html.LabelFor(model => model.ItensImovel[0].Metragem)</th>
                                     <th>@Html.LabelFor(model => model.ItensImovel[0].QuantidadeQuartos)</th>
                                     <th>@Html.LabelFor(model => model.ItensImovel[0].Valor)</th>
+                                    <th>@Html.LabelFor(model => model.ItensAutomovel[0].LinkCotacao)</th>
 
                                 </tr>
                             </thead>
@@ -168,7 +169,8 @@
                                         <td> @item.Cidade</td>
                                         <td> @item.Metragem</td>
                                         <td> @item.QuantidadeQuartos</td>
-                                        <td> @item.Valor</td>                                        
+                                        <td> @item.Valor</td>    
+                                        <td> <a href="@item.LinkCotacao" target="_blank">@item.LinkCotacao</a> </td>                                    
                                     </tr>
                                 }
                             </tbody>
