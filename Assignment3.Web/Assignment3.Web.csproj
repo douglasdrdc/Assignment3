@@ -221,6 +221,7 @@
     <Content Include="CustomPages\images\project-7.jpg" />
     <Content Include="CustomPages\images\project-8.jpg" />
     <Content Include="CustomPages\images\project-9.jpg" />
+    <Content Include="CustomPages\images\typeform.jpg" />
     <Content Include="CustomPages\images\work_1.jpg" />
     <Content Include="CustomPages\images\work_1.png" />
     <Content Include="CustomPages\index.html" />
