@@ -23,8 +23,9 @@ namespace Assignment3.Web.Controllers
 
                 var cotacao = db.Cotacao.Include(c => c.Cliente).Include(c => c.Solicitante);
                 if (cotacao != null && cotacao.Count() > 0)
-                    cotacao.Where(x => x.ClienteId == this.ClienteLogado.ClienteId).ToList();
-                return View(cotacao.ToList());
+                    return View(cotacao.Where(x => x.ClienteId == this.ClienteLogado.ClienteId).ToList());
+
+                return View(cotacao);
             }
             catch (System.Security.Authentication.AuthenticationException)
             {

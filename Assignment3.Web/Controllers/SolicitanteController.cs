@@ -23,8 +23,9 @@ namespace Assignment3.Web.Controllers
 
                 var solicitantes = db.Solicitantes.Include(s => s.Cliente);
                 if (solicitantes != null && solicitantes.Count() > 0)
-                    solicitantes.Where(x => x.ClienteId == this.ClienteLogado.ClienteId).ToList();
-                return View(solicitantes.ToList());
+                    return View(solicitantes.Where(x => x.ClienteId == this.ClienteLogado.ClienteId).ToList());
+
+                return View(solicitantes);
             }
             catch (System.Security.Authentication.AuthenticationException)
             {
