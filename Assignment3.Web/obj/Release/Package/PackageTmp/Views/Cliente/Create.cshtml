@@ -7,7 +7,14 @@
 
 <div class="container">
 
-    @using (Html.BeginForm())
+
+    <div class="alert alert-info" role="alert">
+        <span> Nossa pré campanha já foi finalizada. Caso tenha interesse, entre em contato conosco através do e-mail contato@seguracliente.com.br </span>
+    </div>
+
+
+
+    @*@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -69,7 +76,7 @@
                 </div>
             </div>
         </div>
-    }
+    }*@
 
     <div>
         <a href="http://seguracliente.com.br/">Voltar para a página inicial</a>
